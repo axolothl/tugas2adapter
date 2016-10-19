@@ -35,7 +35,14 @@ public class StudentList {
     }
     public Student delete(int index){
         Student student = daftarstudent.remove(index);
+        changeNo(index);
         return student;
+    }
+    private void changeNo(int index){
+        for (int position = index; position < daftarstudent.size(); position++) {
+            Student now = get(position);
+            now.setNo(position+1 + "");
+        }
     }
 }
 
