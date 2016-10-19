@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.21"
+                android:id="@+id/nomor"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.01"
+                android:background="#ff000000">
+                android:l
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.43"
+                android:paddingLeft="5dp"
+                android:text="NIM"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.01"
+                android:background="#ff000000">
+                android:l
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:layout_alignBaseline="@+id/tvName"
+                android:layout_toRightOf="@+id/tvName"
+                android:text="Nama"
+                android:paddingLeft="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.01"
+                android:background="#ff000000">
+                android:l
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvHometown"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tvName"
+                android:layout_toRightOf="@+id/textView2"
+                android:text="Email"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+        </LinearLayout>
+    </LinearLayout><![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+
+
+        //android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+
+
+
+
+
+
+]]>
+</RelativeLayout>

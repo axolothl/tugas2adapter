@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_student"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.setditjenp2mkt.adapterdemo.AddStudentActivity">
+
+    <TextView
+        android:text="Noreg :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18dp"
+        android:id="@+id/noreg"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:id="@+id/editnoreg"
+        android:layout_alignBaseline="@+id/noreg"
+        android:layout_alignBottom="@+id/noreg"
+        android:layout_toRightOf="@+id/noreg"
+        android:layout_toEndOf="@+id/noreg"
+        android:hint="Nomor Registrasi"
+        android:layout_width="300dp" />
+
+    <TextView
+        android:text="Nama :"
+        android:layout_width="wrap_content"
+        android:textSize="18dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editnoreg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp"
+        android:id="@+id/nama" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editNama"
+        android:layout_alignBaseline="@+id/nama"
+        android:layout_alignBottom="@+id/nama"
+        android:layout_alignLeft="@+id/editnoreg"
+        android:layout_alignStart="@+id/editnoreg"
+        android:hint="Nama"
+        android:layout_width="300dp" />
+
+    <TextView
+        android:text="Email :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_below="@+id/editNama"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp"
+        android:id="@+id/email" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editemail"
+        android:layout_alignBaseline="@+id/email"
+        android:layout_alignBottom="@+id/email"
+        android:layout_alignLeft="@+id/editNama"
+        android:layout_alignStart="@+id/editNama"
+        android:hint="Email"
+        android:layout_width="300dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_clear_black_24dp"
+        android:id="@+id/cancel"
+        android:layout_alignTop="@+id/ok"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_check_circle_black_24dp"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/ok"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/cancel"
+        android:layout_toStartOf="@+id/cancel"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/editemail"
+        android:layout_alignLeft="@+id/editemail"
+        android:layout_alignStart="@+id/editemail"
+        android:id="@+id/editno"
+        android:visibility="invisible" />
+</RelativeLayout>
