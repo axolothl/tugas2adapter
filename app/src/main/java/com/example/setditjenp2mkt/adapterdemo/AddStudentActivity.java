@@ -98,7 +98,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 Intent intent = new Intent(AddStudentActivity.this, StudentActivity.class);
                 int no = Integer.parseInt(student.getNo());
                 StudentList list = StudentList.getInstance();
-                list.delete(no);
+                list.delete(no-1);
                 startActivity(intent);
                 return true;
             default:
