@@ -33,5 +33,9 @@ public class StudentList {
     public int next(){
         return daftarstudent.size()+1;
     }
+    public Student delete(int index){
+        Student student = daftarstudent.remove(index);
+        return student;
+    }
 }
 

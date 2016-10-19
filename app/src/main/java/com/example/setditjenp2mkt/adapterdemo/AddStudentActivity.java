@@ -80,4 +80,29 @@ public class AddStudentActivity extends AppCompatActivity {
         });
 
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Intent intent = getIntent();
+        boolean action = intent.getBooleanExtra("edit", false);
+        if (action){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu_edit, menu);
+        }
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.delete:
+                Intent intent = new Intent(AddStudentActivity.this, StudentActivity.class);
+                int no = Integer.parseInt(student.getNo());
+                StudentList list = StudentList.getInstance();
+                list.delete(no);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
