@@ -80,5 +80,4 @@ public class AddStudentActivity extends AppCompatActivity {
         });
 
     }
-
 }
