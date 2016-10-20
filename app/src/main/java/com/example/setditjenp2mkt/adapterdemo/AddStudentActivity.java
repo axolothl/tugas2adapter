@@ -82,6 +82,7 @@ public class AddStudentActivity extends AppCompatActivity {
         final boolean action = intent.getBooleanExtra("edit", false);
         final int position = intent.getIntExtra("position", 0);
 
+
         if (action == true){
             setTitle("Edit Data");
             student = (Student) intent.getSerializableExtra("student_position");
