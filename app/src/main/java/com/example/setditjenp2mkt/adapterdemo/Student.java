@@ -7,13 +7,13 @@ package com.example.setditjenp2mkt.adapterdemo;
 import java.io.Serializable;
 
 public class Student implements Serializable{
-    private int no;
+    private String no;
     private String noreg;
     private String nama;
     private String email;
     private String telp;
 
-    public Student(int no, String noreg, String nama, String email, String telp) {
+    public Student(String no, String noreg, String nama, String email, String telp) {
         this.setNo(no);
         this.setNoreg(noreg);
         this.setNama(nama);
@@ -45,11 +45,11 @@ public class Student implements Serializable{
         this.email = email;
     }
 
-    public int getNo() {
+    public String getNo() {
         return no;
     }
 
-    public void setNo(int no) {
+    public void setNo(String no) {
         this.no = no;
     }
 

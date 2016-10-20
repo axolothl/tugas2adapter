@@ -35,7 +35,7 @@ public class AddStudentActivity extends AppCompatActivity {
         return daftarstudent;
     }
     public void addStudent(Student student){
-        student.setNo(next());
+        student.setNo(next() + "");
         daftarstudent.add(student);
     }
     public void clearList(){
@@ -62,7 +62,7 @@ public class AddStudentActivity extends AppCompatActivity {
     private void changeNo(int index){
         for (int position = index; position < daftarstudent.size(); position++) {
             Student now = get(position);
-            now.setNo(position+1);
+            now.setNo(position + 1 + "");
         }
     }
 
@@ -97,7 +97,7 @@ public class AddStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddStudentActivity.this, StudentActivity.class);
-                int no = Integer.parseInt(editno.getText().toString());
+                String no = editno.getText().toString();
                 String noreg = editnoreg.getText().toString();
                 String nama = editnama.getText().toString();
                 String email = editemail.getText().toString();
@@ -142,9 +142,9 @@ public class AddStudentActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.delete:
                 Intent intent = new Intent(AddStudentActivity.this, StudentActivity.class);
-                int no = student.getNo();
+                int no = Integer.parseInt(student.getNo());
                 AddStudentActivity list = getInstance();
-                list.delete(no-1);
+                list.delete(no - 1);
                 Toast.makeText(getApplicationContext(), "Student successfully deleted", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 return true;

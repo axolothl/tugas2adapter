@@ -43,7 +43,7 @@ public class SearchResult extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(SearchResult.this, AddStudentActivity.class);
-                int student = searchList.get(position).getNo();
+                int student = Integer.parseInt(searchList.get(position).getNo());
                 Student students = studentList.get(student-1);
                 intent.putExtra("edit", true);
                 intent.putExtra("student_position",students);
