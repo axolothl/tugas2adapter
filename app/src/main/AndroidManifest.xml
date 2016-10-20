@@ -17,11 +17,21 @@
         </activity>
         <activity
             android:name=".StudentActivity"
-            android:label="list of student"
+            android:label="List of Student"
             android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"></meta-data>
+            <meta-data
+                android:name="android.app.default_search"
+                android:value=".StudentActivity"></meta-data>
+            <meta-data
+                android:name="android.app.searh"
+                android:resource="@xml/search"/>
         </activity>
         <activity android:name=".AddStudentActivity"
             android:label="Add Student"
