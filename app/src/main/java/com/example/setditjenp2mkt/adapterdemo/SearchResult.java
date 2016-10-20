@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class SearchResult extends AppCompatActivity{
     private AddStudentActivity studentList;
     private Student student;
+    private SearchResultList searchList;
     private int i;
     private TextView emptyTextView;
     private ListView list_item;
@@ -30,9 +31,9 @@ public class SearchResult extends AppCompatActivity{
         emptyTextView = (TextView)findViewById(R.id.empty_tv);
         list_item = (ListView)findViewById(R.id.lv2_search);
         list_item.setEmptyView(emptyTextView);
-
+        searchList = SearchResultList.getInstance();
         String keyword = new String();
-        Intent searchIntent = getIntent();
+        final Intent searchIntent = getIntent();
         if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
             keyword = searchIntent.getStringExtra(SearchManager.QUERY);
             setTitle("result for: " + keyword);
@@ -42,16 +43,17 @@ public class SearchResult extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(SearchResult.this, AddStudentActivity.class);
-                Student student = studentList.get(position);
+                int student = studentList.get(position).getNo();
+                Student students = studentList.get(student);
                 intent.putExtra("edit", true);
-                intent.putExtra("student_position",student);
-                intent.putExtra("position",position);
+                intent.putExtra("student_position",students);
+                intent.putExtra("position",student);
                 startActivity(intent);
             }
         });
 
+        ArrayList<Student> searchResult = populateSearchList();
         studentList = AddStudentActivity.getInstance();
-        ArrayList<Student> searchResult = new ArrayList<Student>();
         for (i = 0; i<studentList.size(); i++){
             if (studentList.get(i).getNoreg().contains(keyword.toLowerCase())){
                 student = studentList.get(i);
@@ -62,5 +64,10 @@ public class SearchResult extends AppCompatActivity{
         StudentAdapter studentAdapter = new StudentAdapter(this, searchResult);
         ListView list_item = (ListView)findViewById(R.id.lv2_search);
         list_item.setAdapter(studentAdapter);
+    }
+    private ArrayList<Student> populateSearchList() {
+        SearchResultList.getInstance().clearList();
+        //SearchResultList students = SearchResultList.getInstance();
+        return SearchResultList.getList();
     }
 }

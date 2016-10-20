@@ -34,7 +34,7 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         TextView email = (TextView) convertView.findViewById(R.id.tvHometown);
         TextView telp = (TextView) convertView.findViewById(R.id.hp);
         // Populate the data into the template view using the data object
-        no.setText(user.getNo());
+        no.setText(user.getNo() + "");
         noreg.setText(user.getNoreg());
         nama.setText(user.getNama());
         email.setText(user.getEmail());

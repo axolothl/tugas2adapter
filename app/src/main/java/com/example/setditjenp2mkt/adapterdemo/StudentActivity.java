@@ -89,8 +89,8 @@ public class StudentActivity extends AppCompatActivity {
 
     private ArrayList<Student> populateUsersList() {
         AddStudentActivity students = AddStudentActivity.getInstance();
-        students.addStudent(new Student(studentList.next()+"", "3145136210", "M. Fakhri Ali Ibrahim", "fakhri_siskom@yahoo.com", "085881562153"));
-        students.addStudent(new Student(studentList.next()+"", "3145136197", "Muhammad Fachrizal", "bankai_yoy@gmail.com", "0857xxxxxxxx"));
+        students.addStudent(new Student(studentList.next(), "3145136210", "M. Fakhri Ali Ibrahim", "fakhri_siskom@yahoo.com", "085881562153"));
+        students.addStudent(new Student(studentList.next(), "3145136197", "Muhammad Fachrizal", "bankai_yoy@gmail.com", "0857xxxxxxxx"));
         return AddStudentActivity.getList();
     }
 
