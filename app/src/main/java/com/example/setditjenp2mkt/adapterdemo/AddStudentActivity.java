@@ -20,9 +20,51 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText editnama;
     private EditText editemail;
     private EditText editno;
+    private EditText edittelp;
     private Student student;
     private FloatingActionButton ok;
     private FloatingActionButton cancel;
+
+    private static ArrayList<Student> daftarstudent = new ArrayList<>();
+    private static AddStudentActivity instance = new AddStudentActivity();
+
+    public static AddStudentActivity getInstance(){
+        return instance;
+    }
+    public static ArrayList<Student> getList(){
+        return daftarstudent;
+    }
+    public void addStudent(Student student){
+        student.setNo(next()+"");
+        daftarstudent.add(student);
+    }
+    public void clearList(){
+        daftarstudent.clear();
+    }
+    public Student get(int index){
+        Student student = daftarstudent.get(index);
+        return student;
+    }
+    public void edit(int index, Student student){
+        daftarstudent.set(index, student);
+    }
+    public int size(){
+        return daftarstudent.size();
+    }
+    public int next(){
+        return daftarstudent.size()+1;
+    }
+    public Student delete(int index){
+        Student student = daftarstudent.remove(index);
+        changeNo(index);
+        return student;
+    }
+    private void changeNo(int index){
+        for (int position = index; position < daftarstudent.size(); position++) {
+            Student now = get(position);
+            now.setNo(position+1 + "");
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +74,7 @@ public class AddStudentActivity extends AppCompatActivity {
         editnoreg = (EditText)findViewById(R.id.editnoreg);
         editnama = (EditText)findViewById(R.id.editNama);
         editemail = (EditText)findViewById(R.id.editemail);
+        edittelp = (EditText)findViewById(R.id.edittelp);
         ok = (FloatingActionButton)findViewById(R.id.ok);
         cancel = (FloatingActionButton)findViewById(R.id.cancel);
 
@@ -46,6 +89,7 @@ public class AddStudentActivity extends AppCompatActivity {
             editnoreg.setText(student.getNoreg());
             editnama.setText(student.getNama());
             editemail.setText(student.getEmail());
+            edittelp.setText((student.getTelp()));
         }
 
         ok.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +100,9 @@ public class AddStudentActivity extends AppCompatActivity {
                 String noreg = editnoreg.getText().toString();
                 String nama = editnama.getText().toString();
                 String email = editemail.getText().toString();
-                student = new Student(no,noreg,nama,email);
-                StudentList studentList = StudentList.getInstance();
+                String telp = edittelp.getText().toString();
+                student = new Student(no,noreg,nama,email,telp);
+                AddStudentActivity studentList = getInstance();
                 if(!action){
                     studentList.addStudent(student);
                     Toast.makeText(getApplicationContext(), "Student successfully added", Toast.LENGTH_SHORT).show();
@@ -97,12 +142,12 @@ public class AddStudentActivity extends AppCompatActivity {
             case R.id.delete:
                 Intent intent = new Intent(AddStudentActivity.this, StudentActivity.class);
                 int no = Integer.parseInt(student.getNo());
-                StudentList list = StudentList.getInstance();
+                AddStudentActivity list = getInstance();
                 list.delete(no-1);
+                Toast.makeText(getApplicationContext(), "Student successfully deleted", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 return true;
-            default:
-                return super.onOptionsItemSelected(item);
         }
+        return super.onOptionsItemSelected(item);
     }
 }

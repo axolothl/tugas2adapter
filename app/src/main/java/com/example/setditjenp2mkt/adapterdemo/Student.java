@@ -11,12 +11,14 @@ public class Student implements Serializable{
     private String noreg;
     private String nama;
     private String email;
+    private String telp;
 
-    public Student(String no, String noreg, String nama, String email) {
+    public Student(String no, String noreg, String nama, String email, String telp) {
         this.setNo(no);
         this.setNoreg(noreg);
         this.setNama(nama);
         this.setEmail(email);
+        this.setTelp(telp);
     }
 
     public String getNoreg() {
@@ -49,5 +51,13 @@ public class Student implements Serializable{
 
     public void setNo(String no) {
         this.no = no;
+    }
+
+    public String getTelp() {
+        return telp;
+    }
+
+    public void setTelp(String telp) {
+        this.telp = telp;
     }
 }

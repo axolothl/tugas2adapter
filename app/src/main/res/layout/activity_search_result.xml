@@ -86,7 +86,7 @@
                 android:id="@+id/headeremail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Kontak"
+                android:text="Email"
                 android:layout_weight="1"
                 android:paddingLeft="5dp" />
         </LinearLayout>
@@ -99,7 +99,7 @@
         </LinearLayout>
 
         <ListView
-            android:id="@+id/lv2"
+            android:id="@+id/lv2_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"

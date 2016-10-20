@@ -20,7 +20,7 @@
                 android:text="no"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.21"
+                android:layout_weight="0.205"
                 android:id="@+id/nomor"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp" />
@@ -38,7 +38,7 @@
                 android:id="@+id/tvName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.43"
+                android:layout_weight="0.427"
                 android:paddingLeft="5dp"
                 android:text="NIM"
                 android:paddingBottom="10dp"
@@ -74,17 +74,32 @@
                 android:l
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvHometown"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tvName"
-                android:layout_toRightOf="@+id/textView2"
-                android:text="Email"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp" />
+                android:layout_height="match_parent"
+                android:layout_weight="0.999">
+
+                <TextView
+                    android:id="@+id/tvHometown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="5dp"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+
+                <TextView
+                    android:id="@+id/hp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Telp"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+
+                    android:textAppearance="?android:textAppearanceSmall"/>
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout><![CDATA[

@@ -11,10 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,14 +21,15 @@ public class StudentActivity extends AppCompatActivity {
     private ListView list_item;
     private TextView emptyTextView;
     private FloatingActionButton addStudent;
-    private StudentList studentList;
+    private AddStudentActivity studentList;
+    private StudentAdapter studentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
-        studentList = StudentList.getInstance();
-        StudentAdapter studentAdapter = new StudentAdapter(this, StudentList.getList());
+        studentList = AddStudentActivity.getInstance();
+        studentAdapter = new StudentAdapter(StudentActivity.this, AddStudentActivity.getList());
         list_item = (ListView)findViewById(R.id.lv2);
         list_item.setAdapter(studentAdapter);
         emptyTextView = (TextView)findViewById(R.id.empty_tv);
@@ -54,11 +53,7 @@ public class StudentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Intent searchIntent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
-            String keyword = searchIntent.getStringExtra(SearchManager.QUERY);
-            Toast.makeText(StudentActivity.this, keyword, Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,8 +64,9 @@ public class StudentActivity extends AppCompatActivity {
         SearchManager searchManager = (SearchManager)getSystemService(SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
@@ -92,14 +88,14 @@ public class StudentActivity extends AppCompatActivity {
     }
 
     private ArrayList<Student> populateUsersList() {
-        StudentList students = StudentList.getInstance();
-        students.addStudent(new Student(studentList.next()+"", "3145136210", "M. Fakhri Ali Ibrahim", "fakhri_siskom@yahoo.com"));
-        students.addStudent(new Student(studentList.next()+"", "3145136197", "Muhammad Fachrizal", "bankai_yoy@gmail.com"));
-        return StudentList.getList();
+        AddStudentActivity students = AddStudentActivity.getInstance();
+        students.addStudent(new Student(studentList.next()+"", "3145136210", "M. Fakhri Ali Ibrahim", "fakhri_siskom@yahoo.com", "085881562153"));
+        students.addStudent(new Student(studentList.next()+"", "3145136197", "Muhammad Fachrizal", "bankai_yoy@gmail.com", "0857xxxxxxxx"));
+        return AddStudentActivity.getList();
     }
 
     private ArrayList<Student> clearlist(){
-        StudentList.getInstance().clearList();
-        return StudentList.getList();
+        AddStudentActivity.getInstance().clearList();
+        return AddStudentActivity.getList();
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AdapterDemo</string>
+    <string name="search">Search by NIM</string>
 </resources>
