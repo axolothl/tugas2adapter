@@ -25,7 +25,7 @@ public class AddStudentActivity extends AppCompatActivity {
     private FloatingActionButton ok;
     private FloatingActionButton cancel;
 
-    private static ArrayList<Student> daftarstudent = new ArrayList<>();
+    public static ArrayList<Student> daftarstudent = new ArrayList<>();
     private static AddStudentActivity instance = new AddStudentActivity();
 
     public static AddStudentActivity getInstance(){
@@ -59,7 +59,8 @@ public class AddStudentActivity extends AppCompatActivity {
         changeNo(index);
         return student;
     }
-    private void changeNo(int index){
+
+    public void changeNo(int index){
         for (int position = index; position < daftarstudent.size(); position++) {
             Student now = get(position);
             now.setNo(position + 1 + "");

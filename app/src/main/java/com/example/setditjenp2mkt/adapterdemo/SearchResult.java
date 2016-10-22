@@ -4,9 +4,13 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +27,8 @@ public class SearchResult extends AppCompatActivity{
     private int i;
     private TextView emptyTextView;
     private ListView list_item;
+    ArrayList<Student> selected_items = new ArrayList<>();
+    int jml = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +70,56 @@ public class SearchResult extends AppCompatActivity{
         StudentAdapter studentAdapter = new StudentAdapter(this, searchResult);
         ListView list_item = (ListView)findViewById(R.id.lv2_search);
         list_item.setAdapter(studentAdapter);
+        list_item.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        list_item.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
+            @Override
+            public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+                jml++;
+                mode.setTitle(jml + " items selected");
+                selected_items.add(searchList.get(position));
+            }
+
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.my_context, menu);
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.delete_id:
+                        for (Student msg : selected_items)
+                        {
+                            int index = Integer.parseInt(msg.getNo());
+                            AddStudentActivity.daftarstudent.remove(index-1);
+                            studentList.changeNo(index-1);
+                        }
+                        Toast.makeText(getApplicationContext(), jml + " items deleted", Toast.LENGTH_SHORT).show();
+                        jml = 0;
+                        mode.finish();
+                        Intent intent = new Intent(SearchResult.this, StudentActivity.class);
+                        startActivity(intent);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+
+            }
+        });
     }
     private ArrayList<Student> populateSearchList() {
         SearchResultList.getInstance().clearList();
-        //SearchResultList students = SearchResultList.getInstance();
         return SearchResultList.getList();
     }
 }

@@ -23,7 +23,8 @@
                 android:layout_weight="0.205"
                 android:id="@+id/nomor"
                 android:paddingBottom="10dp"
-                android:paddingTop="10dp" />
+                android:paddingTop="10dp"
+                android:background="?android:attr/activatedBackgroundIndicator"/>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -42,7 +43,8 @@
                 android:paddingLeft="5dp"
                 android:text="NIM"
                 android:paddingBottom="10dp"
-                android:paddingTop="10dp" />
+                android:paddingTop="10dp"
+                android:background="?android:attr/activatedBackgroundIndicator"/>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -63,7 +65,8 @@
                 android:text="Nama"
                 android:paddingLeft="5dp"
                 android:paddingBottom="10dp"
-                android:paddingTop="10dp" />
+                android:paddingTop="10dp"
+                android:background="?android:attr/activatedBackgroundIndicator"/>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -88,7 +91,8 @@
                     android:layout_weight="1"
                     android:paddingLeft="5dp"
                     android:paddingBottom="5dp"
-                    android:textAppearance="?android:textAppearanceSmall"/>
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:background="?android:attr/activatedBackgroundIndicator"/>
 
                 <TextView
                     android:id="@+id/hp"
@@ -97,8 +101,8 @@
                     android:text="Telp"
                     android:layout_weight="1"
                     android:paddingLeft="5dp"
-
-                    android:textAppearance="?android:textAppearanceSmall"/>
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:background="?android:attr/activatedBackgroundIndicator"/>
             </LinearLayout>
 
         </LinearLayout>
