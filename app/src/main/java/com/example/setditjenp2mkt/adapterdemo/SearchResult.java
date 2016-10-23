@@ -61,7 +61,7 @@ public class SearchResult extends AppCompatActivity{
         ArrayList<Student> searchResult = populateSearchList();
         studentList = AddStudentActivity.getInstance();
         for (i = 0; i<studentList.size(); i++){
-            if (studentList.get(i).getNoreg().contains(keyword.toLowerCase())){
+            if (studentList.get(i).getNoreg().contains(keyword.toLowerCase()) || studentList.get(i).getNama().toLowerCase().contains(keyword.toLowerCase())){
                 student = studentList.get(i);
                 searchResult.add(student);
             }
