@@ -222,7 +222,7 @@ public class StudentActivity extends AppCompatActivity {
 
         @Override
         protected StudentAdapter doInBackground(AddStudentActivity... params) {
-            //StudentAdapter studentAdapter = new StudentAdapter(getApplicationContext(), params[0]);
+            StudentAdapter studentAdapter = new StudentAdapter(getApplicationContext(), params[0]);
             return studentAdapter;
         }
 
