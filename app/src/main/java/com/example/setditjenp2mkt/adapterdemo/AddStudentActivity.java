@@ -1,6 +1,8 @@
 package com.example.setditjenp2mkt.adapterdemo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,14 +26,17 @@ public class AddStudentActivity extends AppCompatActivity {
     private Student student;
     private FloatingActionButton ok;
     private FloatingActionButton cancel;
+    Context context = this;
+    StudentDbHelper studentDbHelper;
+    SQLiteDatabase sqLiteDatabase;
 
-    public static ArrayList<Student> daftarstudent = new ArrayList<>();
-    private static AddStudentActivity instance = new AddStudentActivity();
+    public ArrayList<Student> daftarstudent = new ArrayList<>();
+    //public AddStudentActivity instance = new AddStudentActivity();
 
-    public static AddStudentActivity getInstance(){
+    /*public AddStudentActivity getInstance(){
         return instance;
-    }
-    public static ArrayList<Student> getList(){
+    }*/
+    public ArrayList<Student> getList(){
         return daftarstudent;
     }
     public void addStudent(Student student){
@@ -104,10 +109,15 @@ public class AddStudentActivity extends AppCompatActivity {
                 String email = editemail.getText().toString();
                 String telp = edittelp.getText().toString();
                 student = new Student(no,noreg,nama,email,telp);
-                AddStudentActivity studentList = getInstance();
+                AddStudentActivity studentList = new AddStudentActivity();
                 if(!action){
-                    studentList.addStudent(student);
-                    Toast.makeText(getApplicationContext(), "Student successfully added", Toast.LENGTH_SHORT).show();
+                    //studentList.addStudent(student);
+                    //db.insertStudent;
+                    studentDbHelper = new StudentDbHelper(context);
+                    sqLiteDatabase = studentDbHelper.getWritableDatabase();
+                    studentDbHelper.insertStudent(sqLiteDatabase, student);
+                    Toast.makeText(getBaseContext(), "Student successfully added", Toast.LENGTH_LONG).show();
+                    studentDbHelper.close();
                     startActivity(intent);
                 } else{
                     studentList.edit(position, student);
@@ -144,7 +154,7 @@ public class AddStudentActivity extends AppCompatActivity {
             case R.id.delete:
                 Intent intent = new Intent(AddStudentActivity.this, StudentActivity.class);
                 int no = Integer.parseInt(student.getNo());
-                AddStudentActivity list = getInstance();
+                AddStudentActivity list = new AddStudentActivity();
                 list.delete(no - 1);
                 Toast.makeText(getApplicationContext(), "Student successfully deleted", Toast.LENGTH_SHORT).show();
                 startActivity(intent);

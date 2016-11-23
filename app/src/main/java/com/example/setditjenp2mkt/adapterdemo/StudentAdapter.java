@@ -18,6 +18,9 @@ public class StudentAdapter extends ArrayAdapter<Student> {
     public StudentAdapter(Context context, ArrayList<Student> users) {
         super(context, 0, users);
     }
+    /*public StudentAdapter(Context context, int resource) {
+        super(context, resource);
+    }*/
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -42,4 +45,5 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         // Return the completed view to render on screen
         return convertView;
     }
+
 }

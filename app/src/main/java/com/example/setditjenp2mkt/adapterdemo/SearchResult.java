@@ -27,6 +27,8 @@ public class SearchResult extends AppCompatActivity{
     private int i;
     private TextView emptyTextView;
     private ListView list_item;
+    public ArrayList<Student> daftarstudent = new ArrayList<>();
+    public AddStudentActivity instance = new AddStudentActivity();
     ArrayList<Student> selected_items = new ArrayList<>();
     int jml = 0;
 
@@ -59,7 +61,7 @@ public class SearchResult extends AppCompatActivity{
         });
 
         ArrayList<Student> searchResult = populateSearchList();
-        studentList = AddStudentActivity.getInstance();
+        studentList = instance;
         for (i = 0; i<studentList.size(); i++){
             if (studentList.get(i).getNoreg().contains(keyword.toLowerCase()) || studentList.get(i).getNama().toLowerCase().contains(keyword.toLowerCase())){
                 student = studentList.get(i);
@@ -98,7 +100,7 @@ public class SearchResult extends AppCompatActivity{
                         for (Student msg : selected_items)
                         {
                             int index = Integer.parseInt(msg.getNo());
-                            AddStudentActivity.daftarstudent.remove(index-1);
+                            daftarstudent.remove(index-1);
                             studentList.changeNo(index-1);
                         }
                         Toast.makeText(getApplicationContext(), jml + " items deleted", Toast.LENGTH_SHORT).show();
